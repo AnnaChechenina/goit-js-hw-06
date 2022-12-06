@@ -19,15 +19,13 @@ const images = [
   },
 ];
 
-
 const allGalleryRef = document.querySelector(`.gallery`);
-allGalleryRef.style.display = `flex`;
-allGalleryRef.style.flexDirection = "column";
-allGalleryRef.style.gap = "20px";
-allGalleryRef.style.listStyle = "none";
+allGalleryRef.style = ` display:flex ; flex-direction:column; gap:20px; list-style:none;`;
+const imagesListRef = images
+  .map(
+    (image) =>
+      `<li><img  src=${image.url} alt='${image.alt}' width="1260" height="750"></img></li>`
+  )
+  .join('');
 
-
-const imagesListRef = images.
-map(image => `<li><img  src=${image.url} alt='${image.alt}' width="1260" height="750"></img></li>`).join('');
-
-allGalleryRef.insertAdjacentHTML("afterbegin", imagesListRef);
+allGalleryRef.insertAdjacentHTML('afterbegin', imagesListRef);

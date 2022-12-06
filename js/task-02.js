@@ -1,8 +1,7 @@
-    // Створить окремий елемент <li> метод document.createElement().
-      // Додасть назву інгредієнта як його текстовий вміст.
-    // Додасть елементу клас item.
-    //вставить усі <li> за одну операцію у список ul#ingredients.
-
+// Створить окремий елемент <li> метод document.createElement().
+// Додасть назву інгредієнта як його текстовий вміст.
+// Додасть елементу клас item.
+//вставить усі <li> за одну операцію у список ul#ingredients.
 
 const ingredients = [
   'Potatoes',
@@ -13,18 +12,17 @@ const ingredients = [
   'Condiments',
 ];
 
-  
-  
-const addIngredientsRef = () => {
-  const allIngredients = document.querySelector(`#ingredients`);
-  for (const ingredient of ingredients) {
-    const newIngredient = document.createElement(`li`);
-    newIngredient.textContent = ingredient;
-    allIngredients.append(newIngredient);
-  }
-  console.log(`allIngredient`);
+const ingredientsRef = document.querySelector('#ingredients');
+
+const addIngredients = (ingredients) => {
+  return ingredients.map((ingredient) => {
+    const newIngredientRef = document.createElement('li');
+    newIngredientRef.textContent = ingredient;
+    newIngredientRef.classList.add('item');
+    return newIngredientRef;
+  });
 };
-addIngredientsRef();
 
-
-
+const elements = addIngredients(ingredients);
+ingredientsRef.append(...elements);
+console.log(ingredientsRef);

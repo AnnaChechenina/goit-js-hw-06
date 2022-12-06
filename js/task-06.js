@@ -6,12 +6,14 @@
 // 4. Для додавання стилів valid і invalid
 
 const inputText = document.querySelector(`#validation-input`);
-const checkedPassword = (add, remove) => {
-  validaition.classList.add(`${add}`);
-  validaition.classList.remove(`${remove}`);
-};
-inputText.addEventListener(`blur`, event => {
-    if (event.target.value.length === inputText.getAttribute(`data-length`)) {
-        checkedPassword('valid')
-            } else {  checkedPassword('invalid') };
-})
+const controlValue = Number(inputText.getAttribute('data-length'));
+
+inputText.addEventListener(`blur`, (event) => {
+  if (event.target.value.length === controlValue) {
+    inputText.classList.add('valid');
+    inputText.classList.remove('invalid');
+  } else {
+    inputText.classList.add('invalid');
+    inputText.classList.remove('valid');
+  }
+});

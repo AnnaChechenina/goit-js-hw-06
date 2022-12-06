@@ -8,5 +8,5 @@ const spanValue = document.querySelector('#text');
 inputValue.addEventListener(`input`, onInputValueChange);
 
 function onInputValueChange(event) {
-    spanValue.style.fontSize = `${event.currentTarget.value}px`;
+  spanValue.style.fontSize = `${event.currentTarget.value}px`;
 }
